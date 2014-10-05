@@ -4,12 +4,12 @@ lamp
 Basic lamp machine with Berkshelf Chef and Vagrant support
 
 
-Requierments
+Requirements
 ------------
 * chef-solo: tested on 11.8.2
 * berkshelf: tested on 3.1.5
 
-Extra develpment requierments
+Extra development requirements
 -----------------------------
 * vagrant >= 1.5.2
 * vagrant-berkshelf (vagrant plugin install vagrant-berkshelf)
