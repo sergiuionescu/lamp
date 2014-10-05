@@ -6,22 +6,22 @@ Basic lamp machine with Berkshelf Chef and Vagrant support
 
 Requierments
 ------------
-chef-solo: tested on 11.8.2
-berkshelf: tested on 3.1.5
+* chef-solo: tested on 11.8.2
+* berkshelf: tested on 3.1.5
 
 Extra develpment requierments
 -----------------------------
-vagrant >= 1.5.2
-vagrant-berkshelf (vagrant plugin install vagrant-berkshelf)
-chef dk >= 0.2.0
-virtualbox: tested on 4.1.14
+* vagrant >= 1.5.2
+* vagrant-berkshelf (vagrant plugin install vagrant-berkshelf)
+* chef dk >= 0.2.0
+* virtualbox: tested on 4.1.14
  
 
 Resources links
 ---------------
-Chef DK(includes Berkshelf): https://downloads.getchef.com/chef-dk/
-Vagrant: https://www.vagrantup.com/downloads.html
-Virtualbox: https://www.virtualbox.org/wiki/Downloads
+* Chef DK(includes Berkshelf): https://downloads.getchef.com/chef-dk/
+* Vagrant: https://www.vagrantup.com/downloads.html
+* Virtualbox: https://www.virtualbox.org/wiki/Downloads
 
 
 How to test dev environment
@@ -42,7 +42,7 @@ Final notes
 -----------
 The Vagrantfile and lamp.json roles are for demo purposes only. 
 Please create your own, i am sure they are not perfect examples.
-The rome lamp.json does not set a password to the mysq root user - avoid using this in production.
+The role lamp.json does not set a password to the mysq root user - avoid using this in production.
 
 Todos
 ------
