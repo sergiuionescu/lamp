@@ -29,6 +29,7 @@ How to test dev environment
 - Clone the repository
 - Go to the project root
 - Run "vagrant up"
+Note: apache needs to started manually at this point.
 
 How to test in production
 -------------------------
@@ -46,5 +47,6 @@ The role lamp.json does not set a password to the mysq root user - avoid using t
 
 Todos
 ------
+- Start Apache  
 - The Mysql cookbook version is frozen at 3.0.4, the latest version seems to have issues on Ubuntu 14.04. Need to see if newer versions can be supported
 - Set up some Travis test cases. Test that all services are installed an running.
