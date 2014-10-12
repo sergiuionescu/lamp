@@ -2,7 +2,8 @@ lamp
 ====
 
 Basic lamp machine with Berkshelf Chef and Vagrant support
-
+* Master: [![Build Status](https://api.travis-ci.org/sergiuionescu/lamp.svg?branch=master)](http://travis-ci.org/sergiuionescu/lamp)
+* Dev: [![Build Status](https://api.travis-ci.org/sergiuionescu/lamp.svg?branch=dev)](http://travis-ci.org/sergiuionescu/lamp)
 
 Requirements
 ------------
