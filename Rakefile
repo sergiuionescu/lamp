@@ -24,7 +24,7 @@ desc "Runs chef solo"
 task :solo do
   sh "sudo berks install"
   sh "sudo berks vendor /tmp/cookbooks"
-  sh "sudo cp -r ../drush /tmp/cookbooks/"
+  sh "sudo cp -r ../lamp /tmp/cookbooks/"
   sh "sudo ls /home/travis/.berkshelf/cookbooks/"
   sh "sudo chef-solo -c test/.chef/solo.rb -j test/.chef/$RUNLIST"
   sh "php -v"
