@@ -6,7 +6,7 @@ description      'Installs/Configures lamp'
 long_description 'Installs/Configures lamp with Berkshelf and Vagrant support'
 version          '0.1.4'
 
-depends 'mysql', '~> 4.0.0'
+depends 'mysql', '~> 5.0.0'
 depends 'apt', '~> 2.6.0'
 depends 'apache2', '~> 2.0.0'
 depends 'php', '~> 1.4.6'
