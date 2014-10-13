@@ -29,7 +29,7 @@ task :solo do
   sh "sudo chef-solo -c test/.chef/solo.rb -j test/.chef/$RUNLIST"
   sh "php -v"
   sh "service mysql status| grep running"
-  sh "service apach2 status| grep running"
+  sh "service apache2 status| grep running"
 end
 
 task :prepare_sandbox do
