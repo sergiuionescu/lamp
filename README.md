@@ -48,6 +48,4 @@ The role lamp.json does not set a password to the mysq root user - avoid using t
 
 Todos
 ------
-- Start Apache  
-- The Mysql cookbook version is frozen at 3.0.4, the latest version seems to have issues on Ubuntu 14.04. Need to see if newer versions can be supported
-- Set up some Travis test cases. Test that all services are installed an running.
+- Monitor apache2 recipe for the autostart fix on ubuntu 14.04  
