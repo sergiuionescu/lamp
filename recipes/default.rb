@@ -12,3 +12,6 @@ include_recipe 'php'
 include_recipe 'php::module_mysql'
 include_recipe 'vim'
 include_recipe 'sendmail'
+
+
+apache_mod 'php5'
