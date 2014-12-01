@@ -3,6 +3,7 @@
 
 Vagrant.configure("2") do |config|
       config.berkshelf.enabled = true
+      config.berkshelf.berksfile_path = "Berksfile"
 end
 
 Vagrant::Config.run do |config|
