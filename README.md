@@ -48,4 +48,4 @@ The role lamp.json does not set a password to the mysq root user - avoid using t
 
 Todos
 ------
-- Monitor apache2 recipe for the autostart fix on ubuntu 14.04  
+
