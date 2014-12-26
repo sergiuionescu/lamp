@@ -1,0 +1,2 @@
+
+default['lamp']['xdebug']['directives'] = {}

@@ -11,6 +11,18 @@
             "server_root_password": "",
             "server_repl_password": "",
             "server_debian_password": ""
+        },
+        "php": {
+            "ext_conf_dir": "/etc/php5/mods-available"
+        },
+        "lamp": {
+            "xdebug": {
+                "directives": {
+                    "remote_connect_back": 1,
+                    "remote_enable": 1,
+                    "remote_autostart": 1
+                }
+            }
         }
     }
 }

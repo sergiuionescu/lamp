@@ -14,3 +14,10 @@ include_recipe 'php::module_mysql'
 include_recipe 'vim'
 include_recipe 'sendmail'
 
+
+php_pear "xdebug" do
+  zend_extensions ['xdebug.so']
+  action :install
+  directives node['lamp']['xdebug']['directives']
+end
+
