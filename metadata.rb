@@ -12,4 +12,4 @@ depends 'apache2', '~> 3.0.0'
 depends 'php'
 depends 'vim', '~> 1.1.2'
 depends 'sendmail', '0.1.0'
-
+depends 'nfs'

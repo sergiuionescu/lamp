@@ -17,17 +17,6 @@ package "php5-mysql" do
   action :install
 end
 
-php_pear "xdebug" do
-  zend_extensions ['xdebug.so']
-  action :install
-  directives node['lamp']['xdebug']['directives']
-end
 
-case node['platform']
-  when 'ubuntu'
-    if node['platform_version'].to_f >= 12.10
-      execute "create xdebug conf symlinks" do
-        command "php5enmod xdebug"
-      end
-end
-end
+
+
