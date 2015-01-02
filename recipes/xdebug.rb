@@ -12,9 +12,8 @@ end
 
 case node['platform']
   when 'ubuntu'
-    if node['platform_version'].to_f >= 12.10
-      execute "create xdebug conf symlinks" do
-        command "php5enmod xdebug"
-      end
+    execute "create xdebug conf symlinks" do
+      command "php5enmod xdebug"
+      only_if node['platform_version'].to_f >= 12.10
     end
 end
