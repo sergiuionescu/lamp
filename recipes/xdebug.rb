@@ -10,10 +10,12 @@ php_pear "xdebug" do
   directives node['lamp']['xdebug']['directives']
 end
 
+log node['platform_version'].to_f
+
 case node['platform']
   when 'ubuntu'
     execute "create xdebug conf symlinks" do
       command "php5enmod xdebug"
-      only_if node['platform_version'].to_f >= 12.10
+      only_if { node['platform_version'].to_f >= 12.10 }
     end
 end
