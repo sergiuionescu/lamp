@@ -20,8 +20,8 @@
         "lamp": {
             "xdebug": {
                 "directives": {
-                    "remote_connect_back": 1,
-                    "remote_enable": 1,
+                    "remote_host": "10.0.2.2",
+                    "remote_enable": 0,
                     "remote_autostart": 1
                 }
             }
