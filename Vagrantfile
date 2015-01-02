@@ -22,7 +22,7 @@ Vagrant::Config.run do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.roles_path = "roles"
-    chef.add_role "lamp"
+    chef.add_role "lamp-vagrant"
   end
 
 end

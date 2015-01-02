@@ -13,5 +13,5 @@ platforms:
 suites:
   - name: default
     run_list:
-      - role[lamp]
+      - role[lamp-vagrant]
     attributes:
