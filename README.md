@@ -35,7 +35,8 @@ Note: apache needs to started manually at this point.
 
 How to use
 ----------
-- Sample roles
+Sample roles
+
 Lamp(production):
 - install basic lamp services
 ``````
@@ -52,9 +53,9 @@ Lamp(production):
             "mpm": "worker"
         },
         "mysql": {
-            "server_root_password": "",
-            "server_repl_password": "",
-            "server_debian_password": ""
+            "server_root_password": "somerandompass",
+            "server_repl_password": "somerandompass",
+            "server_debian_password": "somerandompass"
         }
     }
 }
