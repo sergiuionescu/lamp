@@ -5,6 +5,8 @@ Basic lamp machine with Berkshelf Chef and Vagrant support
 * Master: [![Build Status](https://api.travis-ci.org/sergiuionescu/lamp.svg?branch=master)](http://travis-ci.org/sergiuionescu/lamp)
 * Dev: [![Build Status](https://api.travis-ci.org/sergiuionescu/lamp.svg?branch=dev)](http://travis-ci.org/sergiuionescu/lamp)
 
+Adds optional xdebug and nfs share capabilities
+
 Requirements
 ------------
 * chef-solo: tested on 11.8.2
@@ -31,13 +33,73 @@ How to test dev environment
 - Run kitchen converge (or "vagrant up" if you wish to use vagrant-berkshelf)
 Note: apache needs to started manually at this point.
 
-How to test in production
--------------------------
-@TODO
-
 How to use
 ----------
-@TODO
+- Sample roles
+Lamp(production):
+- install basic lamp services
+``````
+{
+    "name": "lamp",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "description": "Basic lamp configuration.",
+    "run_list": [
+        "recipe[lamp]"
+    ],
+    "default_attributes": {
+        "apache": {
+            "mpm": "worker"
+        },
+        "mysql": {
+            "server_root_password": "",
+            "server_repl_password": "",
+            "server_debian_password": ""
+        }
+    }
+}
+``````
+
+Lamp + nsf share + xdebug(dev):
+- install basic lamp services
+- create a nfs share of /var/www
+- install xdebug - you need to manually set remote_enable=1
+``````
+{
+    "name": "lamp",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "description": "Basic lamp configuration.",
+    "run_list": [
+        "recipe[lamp]",
+        "recipe[lamp::nfs]",
+        "recipe[lamp::xdebug]"
+    ],
+    "default_attributes": {
+        "apache": {
+            "mpm": "worker"
+        },
+        "mysql": {
+            "server_root_password": "",
+            "server_repl_password": "",
+            "server_debian_password": ""
+        },
+        "lamp": {
+            "share": {
+                "user": "vagrant",
+                "group": "vagrant"
+            },
+            "xdebug": {
+                "directives": {
+                    "remote_host": "10.0.2.2",
+                    "remote_enable": 0,
+                    "remote_autostart": 1
+                }
+            }
+        }
+    }
+}
+``````
 
 Final notes
 -----------

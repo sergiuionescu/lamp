@@ -10,8 +10,6 @@ php_pear "xdebug" do
   directives node['lamp']['xdebug']['directives']
 end
 
-log node['platform_version'].to_f
-
 case node['platform']
   when 'ubuntu'
     execute "create xdebug conf symlinks" do
