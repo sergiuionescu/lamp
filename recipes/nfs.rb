@@ -7,7 +7,7 @@
 include_recipe 'nfs::server'
 
 nfs_export "/var/www" do
-  network '192.168.3.0/24'
+  network '*'
   writeable true
   anonuser node['lamp']['share']['user']
   anongroup node['lamp']['share']['group']
