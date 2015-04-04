@@ -23,7 +23,8 @@
                     "remote_host": "10.0.2.2",
                     "remote_enable": 0,
                     "remote_autostart": 1
-                }
+                },
+                "version": "2.0.3"
             }
         }
     }

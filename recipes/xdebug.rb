@@ -6,6 +6,7 @@
 
 php_pear "xdebug" do
   zend_extensions ['xdebug.so']
+  version node['lamp']['xdebug']['version']
   action :install
   directives node['lamp']['xdebug']['directives']
 end
