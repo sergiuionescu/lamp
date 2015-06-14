@@ -11,6 +11,9 @@
             "share": {
                 "user": "vagrant",
                 "group": "vagrant"
+            },
+            "xdebug": {
+                "version": "2.3.2"
             }
         }
     }

@@ -28,7 +28,7 @@ task :solo do
   sh "sudo ls /home/travis/.berkshelf/cookbooks/"
   sh "sudo chef-solo -c test/.chef/solo.rb -j test/.chef/$RUNLIST"
   sh "php -v"
-  sh "service mysql status| grep running"
+  sh "service mysql-default status| grep running"
   sh "service apache2 status| grep running"
   sh "php -i| grep xdebug"
 end

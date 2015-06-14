@@ -12,11 +12,6 @@
         "apache": {
             "mpm": "worker"
         },
-        "mysql": {
-            "server_root_password": "",
-            "server_repl_password": "",
-            "server_debian_password": ""
-        },
         "lamp": {
             "xdebug": {
                 "directives": {

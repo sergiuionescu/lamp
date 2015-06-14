@@ -51,11 +51,6 @@ Lamp(production):
     "default_attributes": {
         "apache": {
             "mpm": "worker"
-        },
-        "mysql": {
-            "server_root_password": "somerandompass",
-            "server_repl_password": "somerandompass",
-            "server_debian_password": "somerandompass"
         }
     }
 }
@@ -80,11 +75,6 @@ Lamp + nsf share + xdebug(dev):
         "apache": {
             "mpm": "worker"
         },
-        "mysql": {
-            "server_root_password": "",
-            "server_repl_password": "",
-            "server_debian_password": ""
-        },
         "lamp": {
             "share": {
                 "user": "vagrant",
@@ -102,12 +92,4 @@ Lamp + nsf share + xdebug(dev):
 }
 ``````
 
-Final notes
------------
-The Vagrantfile and lamp.json roles are for demo purposes only. 
-Please create your own, i am sure they are not perfect examples.
-The role lamp.json does not set a password to the mysq root user - avoid using this in production.
-
-Todos
-------
 
