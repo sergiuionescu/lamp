@@ -8,7 +8,7 @@ DEPENDENCIES
   nfs
   php
     git: git://github.com/sergiuionescu/php.git
-    revision: fe44690d8fcd73012ea0c607f32ded4d6b113ddc
+    revision: ecd809a23d4c8760d8d9e2b6725f64108c92038c
   sendmail
   vim
 
