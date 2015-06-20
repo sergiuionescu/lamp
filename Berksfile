@@ -4,7 +4,7 @@ metadata
 cookbook 'mysql'
 cookbook 'apt'
 cookbook 'apache2'
-cookbook 'php', git: 'git://github.com/sergiuionescu/php.git'
+cookbook 'php'
 cookbook 'vim'
 cookbook 'sendmail'
 cookbook 'nfs'

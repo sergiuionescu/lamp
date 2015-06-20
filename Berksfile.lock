@@ -7,8 +7,6 @@ DEPENDENCIES
   mysql
   nfs
   php
-    git: git://github.com/sergiuionescu/php.git
-    revision: fe44690d8fcd73012ea0c607f32ded4d6b113ddc
   sendmail
   vim
 
