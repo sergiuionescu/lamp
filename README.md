@@ -92,4 +92,6 @@ Lamp + nsf share + xdebug(dev):
 }
 ``````
 
-
+Final Notes:
+------------
+- There currently is an issue with the apache2 cookbook that requires running 'kitchen converge' a second time because of a failing apache2 restart: https://github.com/svanzoest-cookbooks/apache2/issues/355
