@@ -9,9 +9,6 @@
         "recipe[lamp::xdebug]"
     ],
     "default_attributes": {
-        "apache": {
-            "mpm": "prefork"
-        },
         "lamp": {
             "xdebug": {
                 "directives": {
