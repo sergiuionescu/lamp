@@ -4,7 +4,8 @@
     "json_class": "Chef::Role",
     "description": "Basic lamp configuration with vagrant configuration.",
     "run_list": [
-        "role[lamp]"
+        "role[lamp]",
+        "recipe[lamp::phpinfo]"
     ],
     "default_attributes": {
         "lamp": {

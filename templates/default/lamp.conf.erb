@@ -1,0 +1,17 @@
+<VirtualHost *:80>
+    ServerName <%= @params[:server_name] %>
+
+    <Proxy *>
+        Require all granted
+    </Proxy>
+    ProxyPassMatch ^/(.*\.php(/.*)?)$ fcgi://127.0.0.1:9000<%= @params[:docroot] %>/$1
+
+    DocumentRoot <%= @params[:docroot] %>
+    <Directory <%= @params[:docroot] %>>
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog <%= @node[:apache][:log_dir] %>/<%= @params[:name] %>-error.log
+    CustomLog <%= @node[:apache][:log_dir] %>/<%= @params[:name] %>-access.log combined
+</VirtualHost>

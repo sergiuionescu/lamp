@@ -7,7 +7,8 @@
 include_recipe 'apt'
 include_recipe 'apache2'
 include_recipe 'php'
-include_recipe 'apache2::mod_php5'
+include_recipe 'apache2::mod_proxy'
+include_recipe 'apache2::mod_proxy_fcgi'
 include_recipe 'vim'
 include_recipe 'sendmail'
 
@@ -20,10 +21,12 @@ mysql_service 'default' do
   action [:create, :start]
 end
 
-package "php5-mysql" do
+package 'php5-mysql' do
   action :install
 end
 
-
-
+php_fpm_pool 'default' do
+  listen '127.0.0.1:9000'
+  action :install
+end
 
