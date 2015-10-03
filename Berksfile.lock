@@ -49,7 +49,7 @@ GRAPH
     rbac (>= 1.0.1)
   sysctl (0.6.2)
     ohai (>= 0.0.0)
-  vim (2.0.0)
+  vim (1.1.2)
   windows (1.38.2)
     chef_handler (>= 0.0.0)
   xml (1.2.13)
