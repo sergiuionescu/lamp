@@ -7,10 +7,13 @@
 include_recipe 'apt'
 include_recipe 'apache2'
 include_recipe 'php'
+include_recipe 'php::module_gd'
 include_recipe 'apache2::mod_proxy'
 include_recipe 'apache2::mod_proxy_fcgi'
 include_recipe 'vim'
 include_recipe 'sendmail'
+include_recipe 'cron'
+include_recipe "composer"
 
 git_client 'default' do
   action :install
