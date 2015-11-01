@@ -15,6 +15,12 @@ include_recipe 'sendmail'
 include_recipe 'cron'
 include_recipe "composer"
 
+%w{php5-json php5-curl}.each do |pkg|
+  package pkg do
+    action :install
+  end
+end
+
 git_client 'default' do
   action :install
 end
