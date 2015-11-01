@@ -1,6 +1,9 @@
 DEPENDENCIES
   apache2
   apt
+  composer
+  cron
+  git
   lamp
     path: .
     metadata: true
@@ -16,28 +19,41 @@ DEPENDENCIES
 
 GRAPH
   apache2 (3.1.0)
-  apt (2.8.2)
+  apt (2.9.2)
   build-essential (2.2.4)
   chef-sugar (3.1.1)
   chef_handler (1.2.0)
-  iis (4.1.1)
+  composer (2.2.0)
+    php (>= 0.0.0)
+    windows (>= 0.0.0)
+  cron (1.7.0)
+  dmg (2.3.0)
+  git (4.3.4)
+    build-essential (>= 0.0.0)
+    dmg (>= 0.0.0)
+    windows (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+  iis (4.1.3)
     windows (>= 1.34.6)
   lamp (0.2.1)
     apache2 (>= 0.0.0)
     apt (>= 0.0.0)
+    composer (>= 0.0.0)
+    cron (>= 0.0.0)
+    git (>= 0.0.0)
     mysql (>= 0.0.0)
     nfs (>= 0.0.0)
     php (>= 0.0.0)
     sendmail (>= 0.0.0)
     vim (>= 0.0.0)
-  line (0.6.2)
+  line (0.6.3)
   mysql (6.1.2)
     smf (>= 0.0.0)
     yum-mysql-community (>= 0.0.0)
   nfs (2.2.5)
     line (>= 0.0.0)
     sysctl (>= 0.0.0)
-  ohai (2.0.1)
+  ohai (2.0.4)
   php (1.7.2)
     build-essential (>= 0.0.0)
     iis (>= 0.0.0)
@@ -54,11 +70,11 @@ GRAPH
   vim (1.1.2)
   windows (1.38.2)
     chef_handler (>= 0.0.0)
-  xml (1.3.0)
+  xml (1.3.1)
     build-essential (>= 0.0.0)
     chef-sugar (>= 0.0.0)
-  yum (3.7.1)
-  yum-epel (0.6.3)
+  yum (3.8.2)
+  yum-epel (0.6.4)
     yum (~> 3.2)
-  yum-mysql-community (0.1.18)
-    yum (>= 3.0)
+  yum-mysql-community (0.1.19)
+    yum (>= 3.2)
