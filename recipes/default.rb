@@ -12,6 +12,9 @@ include_recipe 'apache2::mod_proxy_fcgi'
 include_recipe 'vim'
 include_recipe 'sendmail'
 
+git_client 'default' do
+  action :install
+end
 
 mysql_service 'default' do
   bind_address node['lamp']['mysql']['bind_address']
