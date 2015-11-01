@@ -14,9 +14,9 @@ Requirements
 
 Extra development requirements
 -----------------------------
-* vagrant >= 1.5.2
-* chef dk >= 0.2.0
-* virtualbox: tested on 4.1.14
+* vagrant
+* chef dk
+* virtualbox
 * vagrant-berkshelf (vagrant plugin install vagrant-berkshelf) - Optional, kitchen converge can be used to launch the vm instead of vagrant up
 
 Resources links
@@ -47,12 +47,7 @@ Lamp(production):
     "description": "Basic lamp configuration.",
     "run_list": [
         "recipe[lamp]"
-    ],
-    "default_attributes": {
-        "apache": {
-            "mpm": "worker"
-        }
-    }
+    ]
 }
 ``````
 
@@ -69,12 +64,10 @@ Lamp + nsf share + xdebug(dev):
     "run_list": [
         "recipe[lamp]",
         "recipe[lamp::nfs]",
-        "recipe[lamp::xdebug]"
+        "recipe[lamp::xdebug]",
+        "recipe[lamp::phpinfo]"
     ],
     "default_attributes": {
-        "apache": {
-            "mpm": "worker"
-        },
         "lamp": {
             "share": {
                 "user": "vagrant",
