@@ -23,7 +23,7 @@ Requirements(prod)
 * chef-solo: https://downloads.chef.io/chef-client/
 * berkshelf: http://berkshelf.com/
 
-Requierments(dev)
+Requirements(dev)
 -----------------
 * vagrant: https://www.vagrantup.com/downloads.html
 * chef dk: https://downloads.getchef.com/chef-dk/
