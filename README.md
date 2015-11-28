@@ -5,12 +5,12 @@ Basic lamp machine with Berkshelf Chef and Vagrant support
 * Dev: [![Build Status](https://api.travis-ci.org/sergiuionescu/lamp.svg?branch=dev)](http://travis-ci.org/sergiuionescu/lamp)
 
 
-Install and configures the following services:
+Installs and configures the following services:
 - apache(mod_proxy)
 - php-fpm
 - mysql
 
-Additional sevices/tools:
+Additional services/tools:
 - vim
 - sendmail
 - git client
@@ -61,9 +61,9 @@ Lamp(production):
 ``````
 
 Lamp + nsf share + xdebug(dev):
-- install basic lamp services
-- create a nfs share of /var/www
-- install xdebug - you need to manually set remote_enable=1
+- installs basic lamp services
+- creates a nfs share of '/var/www'
+- installs xdebug - you need to manually set remote_enable=1
 ``````
 {
     "name": "lamp",
