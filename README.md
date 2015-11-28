@@ -1,40 +1,49 @@
 lamp
 ====
-
 Basic lamp machine with Berkshelf Chef and Vagrant support
 * Master: [![Build Status](https://api.travis-ci.org/sergiuionescu/lamp.svg?branch=master)](http://travis-ci.org/sergiuionescu/lamp)
 * Dev: [![Build Status](https://api.travis-ci.org/sergiuionescu/lamp.svg?branch=dev)](http://travis-ci.org/sergiuionescu/lamp)
 
+
+Installs and configures the following services:
+- apache(mod_proxy)
+- php-fpm
+- mysql
+
+Additional services/tools:
+- vim
+- sendmail
+- git client
+- composer
+
 Adds optional xdebug and nfs share capabilities
 
-Requirements
-------------
-* chef-solo: tested on 11.8.2
-* berkshelf: tested on 3.1.5
+Requirements(prod)
+------------------
+* chef-solo: https://downloads.chef.io/chef-client/
+* berkshelf: http://berkshelf.com/
 
-Extra development requirements
------------------------------
-* vagrant
-* chef dk
-* virtualbox
-* vagrant-berkshelf (vagrant plugin install vagrant-berkshelf) - Optional, kitchen converge can be used to launch the vm instead of vagrant up
+Requierments(dev)
+-----------------
+* vagrant: https://www.vagrantup.com/downloads.html
+* chef dk: https://downloads.getchef.com/chef-dk/
+* virtualbox: https://www.virtualbox.org/wiki/Downloads
 
-Resources links
----------------
-* Chef DK(includes Berkshelf): https://downloads.getchef.com/chef-dk/
-* Vagrant: https://www.vagrantup.com/downloads.html
-* Virtualbox: https://www.virtualbox.org/wiki/Downloads
-
-
-How to test dev environment
+Testing the dev environment
 ---------------------------
 - Clone the repository
 - Go to the project root
-- Run kitchen converge (or "vagrant up" if you wish to use vagrant-berkshelf)
-Note: apache needs to started manually at this point.
+- Run kitchen converge
 
-How to use
-----------
+Recipes
+-------
+- default - installs basic services
+- nfs - installs nfs server and exposes a network share to '/var/www'
+- xdebug - installs the php debugger
+- phpinfo - recipe that sets up a test web application under '/var/www/phpinfo' - accessing the machine ip will show the phpinfo values
+
+Configuration
+-------------
 Sample roles
 
 Lamp(production):
@@ -52,9 +61,9 @@ Lamp(production):
 ``````
 
 Lamp + nsf share + xdebug(dev):
-- install basic lamp services
-- create a nfs share of /var/www
-- install xdebug - you need to manually set remote_enable=1
+- installs basic lamp services
+- creates a nfs share of '/var/www'
+- installs xdebug - you need to manually set remote_enable=1
 ``````
 {
     "name": "lamp",
