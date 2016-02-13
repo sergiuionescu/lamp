@@ -9,6 +9,10 @@
         "recipe[lamp::xdebug]"
     ],
     "default_attributes": {
+        "php": {
+            "install_method": "source",
+            "version": "7.0.3"
+        },
         "lamp": {
             "xdebug": {
                 "directives": {

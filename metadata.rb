@@ -4,7 +4,7 @@ maintainer_email 'sergiu.ionescu@gmail.com'
 license          'Apache 2.0'
 description      'Installs/Configures lamp'
 long_description 'Installs/Configures lamp with Berkshelf and Vagrant support'
-version          '0.2.6'
+version          '0.3.0'
 
 depends 'mysql'
 depends 'apt'
