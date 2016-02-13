@@ -35,7 +35,7 @@ GRAPH
     yum-epel (>= 0.0.0)
   iis (4.1.3)
     windows (>= 1.34.6)
-  lamp (0.2.6)
+  lamp (0.3.0)
     apache2 (>= 0.0.0)
     apt (>= 0.0.0)
     composer (>= 0.0.0)

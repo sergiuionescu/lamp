@@ -6,6 +6,18 @@
 
 include_recipe 'apt'
 include_recipe 'apache2'
+
+
+if node['php']['install_method'] == 'source' and node['php']['version'] >= '7'
+  package 'libgmp-dev' do
+    action :install
+  end
+
+  link '/usr/include/gmp.h' do
+    to '/usr/include/x86_64-linux-gnu/gmp.h'
+  end
+end
+
 include_recipe 'php'
 include_recipe 'php::module_gd'
 include_recipe 'apache2::mod_proxy'
