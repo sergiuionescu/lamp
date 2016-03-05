@@ -6,18 +6,7 @@
 
 include_recipe 'apt'
 include_recipe 'apache2'
-
-
-if node['php']['install_method'] == 'source' and node['php']['version'] >= '7'
-  package 'libgmp-dev' do
-    action :install
-  end
-
-  link '/usr/include/gmp.h' do
-    to '/usr/include/x86_64-linux-gnu/gmp.h'
-  end
-end
-
+include_recipe 'lamp::php7'
 include_recipe 'php'
 include_recipe 'php::module_gd'
 include_recipe 'apache2::mod_proxy'
@@ -26,12 +15,6 @@ include_recipe 'vim'
 include_recipe 'sendmail'
 include_recipe 'cron'
 include_recipe "composer"
-
-%w{php5-json php5-curl}.each do |pkg|
-  package pkg do
-    action :install
-  end
-end
 
 git_client 'default' do
   action :install
