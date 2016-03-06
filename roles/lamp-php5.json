@@ -5,8 +5,7 @@
   "description": "Basic lamp configuration.",
   "run_list": [
     "recipe[lamp]",
-    "recipe[lamp::nfs]",
-    "recipe[lamp::xdebug]"
+    "recipe[lamp::nfs]"
   ],
   "default_attributes": {
     "php": {
@@ -14,16 +13,6 @@
         "php5-json",
         "php5-curl"
       ]
-    },
-    "lamp": {
-      "xdebug": {
-        "directives": {
-          "remote_host": "10.0.2.2",
-          "remote_enable": 0,
-          "remote_autostart": 1
-        },
-        "version": "2.0.3"
-      }
     }
   }
 }

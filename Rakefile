@@ -30,8 +30,6 @@ task :solo do
   sh "php -v"
   sh "service mysql-default status| grep running"
   sh "service apache2 status| grep running"
-  sh "php -i| grep xdebug"
-  sh "cat /var/log/php*"
 end
 
 task :prepare_sandbox do
