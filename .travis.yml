@@ -3,6 +3,8 @@ gemfile:
    - test/support/Gemfile
 rvm:
   - 2.1.1
+sudo: required
+dist: trusty
 env:
   - RUNLIST=lamp.json
 before_install:
