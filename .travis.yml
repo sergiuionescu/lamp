@@ -2,7 +2,7 @@ language: ruby
 gemfile:
    - test/support/Gemfile
 rvm:
-  - 2.2.3
+  - 2.1.7
 sudo: required
 dist: trusty
 env:
