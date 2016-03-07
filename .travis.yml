@@ -15,3 +15,5 @@ script:
   - bundle exec rake knife
   - bundle exec rake foodcritic
   - bundle exec rake solo
+
+after_failure: "cat /var/log/php5-fpm.log"
