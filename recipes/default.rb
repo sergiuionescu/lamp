@@ -33,6 +33,7 @@ package 'php5-mysql' do
 end
 
 php_fpm_pool 'default' do
+  listen '127.0.0.1:9000'
   action :install
 end
 
