@@ -35,5 +35,6 @@ end
 php_fpm_pool 'default' do
   listen '127.0.0.1:9000'
   action :install
+  additional_config {'catch_workers_output' => 'yes'}
 end
 
