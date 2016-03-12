@@ -16,4 +16,4 @@ suites:
       - role[lamp-vagrant]
   - name: php5
     run_list:
-      - role
+      - role[lamp-vagrant-php5]
