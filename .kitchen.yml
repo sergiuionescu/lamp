@@ -14,4 +14,6 @@ suites:
   - name: default
     run_list:
       - role[lamp-vagrant]
-    attributes:
+  - name: php5
+    run_list:
+      - role

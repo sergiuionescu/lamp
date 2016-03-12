@@ -7,14 +7,6 @@
         "recipe[lamp]",
         "recipe[lamp::nfs]"
     ],
-    "default_attributes": {
-        "php": {
-            "packages": [
-                "php5-json",
-                "php5-curl"
-            ]
-        }
-    },
     "override_attributes": {
         "php": {
             "version": "7.0",
