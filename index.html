@@ -103,16 +103,15 @@ Php7 support via ppa:ondrej/php.</p>
 <li>install basic lamp services</li>
 </ul>
 
-<pre><code>{
-    "name": "lamp",
-    "chef_type": "role",
-    "json_class": "Chef::Role",
-    "description": "Basic lamp configuration.",
-    "run_list": [
-        "recipe[lamp]"
+<div class="highlight highlight-source-json"><pre>{
+    <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>lamp<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>chef_type<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>role<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>json_class<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Chef::Role<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>description<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Basic lamp configuration.<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>run_list<span class="pl-pds">"</span></span>: [
+        <span class="pl-s"><span class="pl-pds">"</span>recipe[lamp]<span class="pl-pds">"</span></span>
     ]
-}
-</code></pre>
+}</pre></div>
 
 <p>Lamp + nsf share + xdebug(dev):</p>
 
@@ -122,71 +121,70 @@ Php7 support via ppa:ondrej/php.</p>
 <li>installs xdebug - you need to manually set remote_enable=1</li>
 </ul>
 
-<pre><code>{
-    "name": "lamp",
-    "chef_type": "role",
-    "json_class": "Chef::Role",
-    "description": "Basic lamp configuration.",
-    "run_list": [
-        "recipe[lamp]",
-        "recipe[lamp::nfs]",
-        "recipe[lamp::xdebug]",
-        "recipe[lamp::phpinfo]"
+<div class="highlight highlight-source-json"><pre>{
+    <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>lamp<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>chef_type<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>role<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>json_class<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Chef::Role<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>description<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Basic lamp configuration.<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>run_list<span class="pl-pds">"</span></span>: [
+        <span class="pl-s"><span class="pl-pds">"</span>recipe[lamp]<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>recipe[lamp::nfs]<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>recipe[lamp::xdebug]<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>recipe[lamp::phpinfo]<span class="pl-pds">"</span></span>
     ],
-    "default_attributes": {
-        "lamp": {
-            "share": {
-                "user": "vagrant",
-                "group": "vagrant"
+    <span class="pl-s"><span class="pl-pds">"</span>default_attributes<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>lamp<span class="pl-pds">"</span></span>: {
+            <span class="pl-s"><span class="pl-pds">"</span>share<span class="pl-pds">"</span></span>: {
+                <span class="pl-s"><span class="pl-pds">"</span>user<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>vagrant<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>group<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>vagrant<span class="pl-pds">"</span></span>
             },
-            "xdebug": {
-                "directives": {
-                    "remote_host": "10.0.2.2",
-                    "remote_enable": 0,
-                    "remote_autostart": 1
+            <span class="pl-s"><span class="pl-pds">"</span>xdebug<span class="pl-pds">"</span></span>: {
+                <span class="pl-s"><span class="pl-pds">"</span>directives<span class="pl-pds">"</span></span>: {
+                    <span class="pl-s"><span class="pl-pds">"</span>remote_host<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>10.0.2.2<span class="pl-pds">"</span></span>,
+                    <span class="pl-s"><span class="pl-pds">"</span>remote_enable<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>,
+                    <span class="pl-s"><span class="pl-pds">"</span>remote_autostart<span class="pl-pds">"</span></span>: <span class="pl-c1">1</span>
                 }
             }
         }
     }
-}
+}</pre></div>
 
-Sample role with php7 support.
+<p>Sample role with php7 support.</p>
 
-Php 7 is supported via ppa. The are a number of overwrite attributes that need to be set as long with a path for the php cookbook to disable pear and pecl update.
-```json
-{
-    "name": "lamp",
-    "chef_type": "role",
-    "json_class": "Chef::Role",
-    "description": "Basic lamp configuration.",
-    "run_list": [
-        "recipe[lamp]",
-        "recipe[lamp::nfs]"
+<p>Php 7 is supported via ppa. The are a number of overwrite attributes that need to be set as long with a path for the php cookbook to disable pear and pecl update.</p>
+
+<div class="highlight highlight-source-json"><pre>{
+    <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>lamp<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>chef_type<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>role<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>json_class<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Chef::Role<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>description<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Basic lamp configuration.<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>run_list<span class="pl-pds">"</span></span>: [
+        <span class="pl-s"><span class="pl-pds">"</span>recipe[lamp]<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>recipe[lamp::nfs]<span class="pl-pds">"</span></span>
     ],
-    "override_attributes": {
-        "php": {
-            "version": "7.0",
-            "conf_dir": "/etc/php/7.0/cli",
-            "packages": [
-                "php7.0-cgi",
-                "php7.0",
-                "php7.0-dev",
-                "php7.0-cli",
-                "php7.0-json",
-                "php7.0-curl",
-                "php-pear"
+    <span class="pl-s"><span class="pl-pds">"</span>override_attributes<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>php<span class="pl-pds">"</span></span>: {
+            <span class="pl-s"><span class="pl-pds">"</span>version<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>7.0<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>conf_dir<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>/etc/php/7.0/cli<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>packages<span class="pl-pds">"</span></span>: [
+                <span class="pl-s"><span class="pl-pds">"</span>php7.0-cgi<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>php7.0<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>php7.0-dev<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>php7.0-cli<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>php7.0-json<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>php7.0-curl<span class="pl-pds">"</span></span>,
+                <span class="pl-s"><span class="pl-pds">"</span>php-pear<span class="pl-pds">"</span></span>
             ],
-            "mysql": {
-                "package": "php7.0-mysql"
+            <span class="pl-s"><span class="pl-pds">"</span>mysql<span class="pl-pds">"</span></span>: {
+                <span class="pl-s"><span class="pl-pds">"</span>package<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>php7.0-mysql<span class="pl-pds">"</span></span>
             },
-            "fpm_package": "php7.0-fpm",
-            "fpm_pooldir": "/etc/php/7.0/fpm/pool.d",
-            "fpm_service": "php7.0-fpm",
-            "fpm_default_conf": "/etc/php/7.0/fpm/pool.d/www.conf"
+            <span class="pl-s"><span class="pl-pds">"</span>fpm_package<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>php7.0-fpm<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>fpm_pooldir<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>/etc/php/7.0/fpm/pool.d<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>fpm_service<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>php7.0-fpm<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>fpm_default_conf<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>/etc/php/7.0/fpm/pool.d/www.conf<span class="pl-pds">"</span></span>
         }
     }
-}
-</code></pre>
+}</pre></div>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/sergiuionescu/lamp">Lamp</a> is maintained by <a href="https://github.com/sergiuionescu">sergiuionescu</a>.</span>
