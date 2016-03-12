@@ -50,7 +50,7 @@ Sample roles
 
 Lamp(production):
 - install basic lamp services
-``````
+```json
 {
     "name": "lamp",
     "chef_type": "role",
@@ -60,13 +60,13 @@ Lamp(production):
         "recipe[lamp]"
     ]
 }
-``````
+```
 
 Lamp + nsf share + xdebug(dev):
 - installs basic lamp services
 - creates a nfs share of '/var/www'
 - installs xdebug - you need to manually set remote_enable=1
-``````
+```json
 {
     "name": "lamp",
     "chef_type": "role",
@@ -94,6 +94,7 @@ Lamp + nsf share + xdebug(dev):
         }
     }
 }
+```
 
 Sample role with php7 support.
 
