@@ -16,7 +16,9 @@ Additional services/tools:
 - git client
 - composer
 
-Adds optional xdebug and nfs share capabilities
+Adds optional xdebug and nfs share capabilities.
+Php7 support via ppa:ondrej/php.
+
 
 Requirements(prod)
 ------------------
@@ -92,3 +94,41 @@ Lamp + nsf share + xdebug(dev):
         }
     }
 }
+
+Sample role with php7 support.
+
+Php 7 is supported via ppa. The are a number of overwrite attributes that need to be set as long with a path for the php cookbook to disable pear and pecl update.
+```json
+{
+    "name": "lamp",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "description": "Basic lamp configuration.",
+    "run_list": [
+        "recipe[lamp]",
+        "recipe[lamp::nfs]"
+    ],
+    "override_attributes": {
+        "php": {
+            "version": "7.0",
+            "conf_dir": "/etc/php/7.0/cli",
+            "packages": [
+                "php7.0-cgi",
+                "php7.0",
+                "php7.0-dev",
+                "php7.0-cli",
+                "php7.0-json",
+                "php7.0-curl",
+                "php-pear"
+            ],
+            "mysql": {
+                "package": "php7.0-mysql"
+            },
+            "fpm_package": "php7.0-fpm",
+            "fpm_pooldir": "/etc/php/7.0/fpm/pool.d",
+            "fpm_service": "php7.0-fpm",
+            "fpm_default_conf": "/etc/php/7.0/fpm/pool.d/www.conf"
+        }
+    }
+}
+```

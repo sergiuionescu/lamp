@@ -5,19 +5,28 @@
     "description": "Basic lamp configuration.",
     "run_list": [
         "recipe[lamp]",
-        "recipe[lamp::nfs]",
-        "recipe[lamp::xdebug]"
+        "recipe[lamp::nfs]"
     ],
-    "default_attributes": {
-        "lamp": {
-            "xdebug": {
-                "directives": {
-                    "remote_host": "10.0.2.2",
-                    "remote_enable": 0,
-                    "remote_autostart": 1
-                },
-                "version": "2.0.3"
-            }
+    "override_attributes": {
+        "php": {
+            "version": "7.0",
+            "conf_dir": "/etc/php/7.0/cli",
+            "packages": [
+                "php7.0-cgi",
+                "php7.0",
+                "php7.0-dev",
+                "php7.0-cli",
+                "php7.0-json",
+                "php7.0-curl",
+                "php-pear"
+            ],
+            "mysql": {
+                "package": "php7.0-mysql"
+            },
+            "fpm_package": "php7.0-fpm",
+            "fpm_pooldir": "/etc/php/7.0/fpm/pool.d",
+            "fpm_service": "php7.0-fpm",
+            "fpm_default_conf": "/etc/php/7.0/fpm/pool.d/www.conf"
         }
     }
 }
