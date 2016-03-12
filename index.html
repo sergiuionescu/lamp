@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Lamp by sergiuionescu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Lamp</h1>
+      <h2 class="project-tagline">Basic lamp machine with Berkshelf Chef and Vagrant support</h2>
+      <a href="https://github.com/sergiuionescu/lamp" class="btn">View on GitHub</a>
+      <a href="https://github.com/sergiuionescu/lamp/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/sergiuionescu/lamp/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="lamp" class="anchor" href="#lamp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>lamp</h1>
+
+<p>Basic lamp machine with Berkshelf Chef and Vagrant support</p>
+
+<ul>
+<li>Master: <a href="http://travis-ci.org/sergiuionescu/lamp"><img src="https://api.travis-ci.org/sergiuionescu/lamp.svg?branch=master" alt="Build Status"></a>
+</li>
+<li>Dev: <a href="http://travis-ci.org/sergiuionescu/lamp"><img src="https://api.travis-ci.org/sergiuionescu/lamp.svg?branch=dev" alt="Build Status"></a>
+</li>
+</ul>
+
+<p>Installs and configures the following services:</p>
+
+<ul>
+<li>apache(mod_proxy)</li>
+<li>php-fpm</li>
+<li>mysql</li>
+</ul>
+
+<p>Additional services/tools:</p>
+
+<ul>
+<li>vim</li>
+<li>sendmail</li>
+<li>git client</li>
+<li>composer</li>
+</ul>
+
+<p>Adds optional xdebug and nfs share capabilities.
+Php7 support via ppa:ondrej/php.</p>
+
+<h2>
+<a id="requirementsprod" class="anchor" href="#requirementsprod" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements(prod)</h2>
+
+<ul>
+<li>chef-solo: <a href="https://downloads.chef.io/chef-client/">https://downloads.chef.io/chef-client/</a>
+</li>
+<li>berkshelf: <a href="http://berkshelf.com/">http://berkshelf.com/</a>
+</li>
+</ul>
+
+<h2>
+<a id="requirementsdev" class="anchor" href="#requirementsdev" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements(dev)</h2>
+
+<ul>
+<li>vagrant: <a href="https://www.vagrantup.com/downloads.html">https://www.vagrantup.com/downloads.html</a>
+</li>
+<li>chef dk: <a href="https://downloads.getchef.com/chef-dk/">https://downloads.getchef.com/chef-dk/</a>
+</li>
+<li>virtualbox: <a href="https://www.virtualbox.org/wiki/Downloads">https://www.virtualbox.org/wiki/Downloads</a>
+</li>
+</ul>
+
+<h2>
+<a id="testing-the-dev-environment" class="anchor" href="#testing-the-dev-environment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testing the dev environment</h2>
+
+<ul>
+<li>Clone the repository</li>
+<li>Go to the project root</li>
+<li>Run kitchen converge</li>
+</ul>
+
+<h2>
+<a id="recipes" class="anchor" href="#recipes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recipes</h2>
+
+<ul>
+<li>default - installs basic services</li>
+<li>nfs - installs nfs server and exposes a network share to '/var/www'</li>
+<li>xdebug - installs the php debugger</li>
+<li>phpinfo - recipe that sets up a test web application under '/var/www/phpinfo' - accessing the machine ip will show the phpinfo values</li>
+</ul>
+
+<h2>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration</h2>
+
+<p>Sample roles</p>
+
+<p>Lamp(production):</p>
+
+<ul>
+<li>install basic lamp services</li>
+</ul>
+
+<pre><code>{
+    "name": "lamp",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "description": "Basic lamp configuration.",
+    "run_list": [
+        "recipe[lamp]"
+    ]
+}
+</code></pre>
+
+<p>Lamp + nsf share + xdebug(dev):</p>
+
+<ul>
+<li>installs basic lamp services</li>
+<li>creates a nfs share of '/var/www'</li>
+<li>installs xdebug - you need to manually set remote_enable=1</li>
+</ul>
+
+<pre><code>{
+    "name": "lamp",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "description": "Basic lamp configuration.",
+    "run_list": [
+        "recipe[lamp]",
+        "recipe[lamp::nfs]",
+        "recipe[lamp::xdebug]",
+        "recipe[lamp::phpinfo]"
+    ],
+    "default_attributes": {
+        "lamp": {
+            "share": {
+                "user": "vagrant",
+                "group": "vagrant"
+            },
+            "xdebug": {
+                "directives": {
+                    "remote_host": "10.0.2.2",
+                    "remote_enable": 0,
+                    "remote_autostart": 1
+                }
+            }
+        }
+    }
+}
+
+Sample role with php7 support.
+
+Php 7 is supported via ppa. The are a number of overwrite attributes that need to be set as long with a path for the php cookbook to disable pear and pecl update.
+```json
+{
+    "name": "lamp",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "description": "Basic lamp configuration.",
+    "run_list": [
+        "recipe[lamp]",
+        "recipe[lamp::nfs]"
+    ],
+    "override_attributes": {
+        "php": {
+            "version": "7.0",
+            "conf_dir": "/etc/php/7.0/cli",
+            "packages": [
+                "php7.0-cgi",
+                "php7.0",
+                "php7.0-dev",
+                "php7.0-cli",
+                "php7.0-json",
+                "php7.0-curl",
+                "php-pear"
+            ],
+            "mysql": {
+                "package": "php7.0-mysql"
+            },
+            "fpm_package": "php7.0-fpm",
+            "fpm_pooldir": "/etc/php/7.0/fpm/pool.d",
+            "fpm_service": "php7.0-fpm",
+            "fpm_default_conf": "/etc/php/7.0/fpm/pool.d/www.conf"
+        }
+    }
+}
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/sergiuionescu/lamp">Lamp</a> is maintained by <a href="https://github.com/sergiuionescu">sergiuionescu</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
