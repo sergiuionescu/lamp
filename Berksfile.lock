@@ -12,8 +12,6 @@ DEPENDENCIES
     git: git://github.com/sergiuionescu/cookbook-nfs.git
     revision: 00a2c39a735287c03b1b4ce495bc7ddca146d933
   php
-    git: git://github.com/sergiuionescu/php.git
-    revision: 8e64558a173b78bd99822301f7099644e4e2fd44
   sendmail
   vim (= 1.1.2)
 
@@ -50,18 +48,18 @@ GRAPH
     sendmail (>= 0.0.0)
     vim (>= 0.0.0)
   line (0.6.3)
-  mysql (6.1.2)
+  mysql (6.1.3)
     smf (>= 0.0.0)
     yum-mysql-community (>= 0.0.0)
   nfs (2.2.5)
     line (>= 0.0.0)
     sysctl (>= 0.0.0)
-  ohai (2.1.0)
+  ohai (3.0.1)
   php (1.8.0)
     build-essential (>= 0.0.0)
     iis (>= 0.0.0)
     mysql (>= 6.0.0)
-    windows (>= 1.39.1)
+    windows (>= 0.0.0)
     xml (>= 0.0.0)
     yum-epel (>= 0.0.0)
   rbac (1.0.3)

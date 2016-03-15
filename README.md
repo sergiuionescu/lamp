@@ -120,6 +120,8 @@ Php 7 is supported via ppa. The are a number of overwrite attributes that need t
                 "php7.0-cli",
                 "php7.0-json",
                 "php7.0-curl",
+                "php-xdebug",
+                "php-mysql",
                 "php-pear"
             ],
             "mysql": {
