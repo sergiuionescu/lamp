@@ -1,0 +1,18 @@
+{
+    "name": "lamp-vagrant",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "description": "Basic lamp configuration with vagrant configuration.",
+    "run_list": [
+        "role[lamp-centos]",
+        "recipe[lamp::phpinfo]"
+    ],
+    "default_attributes": {
+        "lamp": {
+            "share": {
+                "user": "vagrant",
+                "group": "vagrant"
+            }
+        }
+    }
+}

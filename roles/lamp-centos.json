@@ -1,0 +1,32 @@
+{
+    "name": "lamp",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "description": "Basic lamp configuration.",
+    "run_list": [
+        "recipe[lamp]",
+        "recipe[lamp::nfs]"
+    ],
+    "override_attributes": {
+        "php": {
+            "version": "7.0",
+            "packages": [
+                "php70",
+                "php70-scldevel",
+                "php70-php-cli",
+                "php70-php-json",
+                "php70-php-curl",
+                "php70-php-pear",
+                "php70-php-pecl-mysql"
+            ],
+            "mysql": {
+                "package": "php70-php-pecl-mysql"
+            },
+            "fpm_package": "php70-php-fpm",
+            "fpm_service": "php70-php-fpm",
+            "fpm_pooldir": "/etc/opt/remi/php70/",
+            "fpm_default_conf": "/etc/opt/remi/php70/"
+
+        }
+    }
+}

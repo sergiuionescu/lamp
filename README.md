@@ -1,5 +1,5 @@
-lamp
-====
+lamp Cookbook
+=============
 Basic lamp machine with Berkshelf Chef and Vagrant support
 * Master: [![Build Status](https://api.travis-ci.org/sergiuionescu/lamp.svg?branch=master)](http://travis-ci.org/sergiuionescu/lamp)
 * Dev: [![Build Status](https://api.travis-ci.org/sergiuionescu/lamp.svg?branch=dev)](http://travis-ci.org/sergiuionescu/lamp)
@@ -17,7 +17,7 @@ Additional services/tools:
 - composer
 
 Adds optional xdebug and nfs share capabilities.
-Php7 support via ppa:ondrej/php.
+Php7 support via ppa:ondrej/php or remi.
 
 
 Requirements(prod)
@@ -43,6 +43,11 @@ Recipes
 - nfs - installs nfs server and exposes a network share to '/var/www'
 - xdebug - installs the php debugger
 - phpinfo - recipe that sets up a test web application under '/var/www/phpinfo' - accessing the machine ip will show the phpinfo values
+
+Platforms
+---------
+- Ubuntu 14.04
+- Centos 7.2
 
 Configuration
 -------------

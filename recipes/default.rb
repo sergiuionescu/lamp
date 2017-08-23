@@ -6,6 +6,7 @@
 
 include_recipe 'apt'
 include_recipe 'apache2'
+include_recipe 'lamp::mysql'
 include_recipe 'lamp::php7'
 include_recipe 'php'
 include_recipe 'php::module_gd'
@@ -26,10 +27,7 @@ mysql_service 'default' do
   data_dir '/data'
   initial_root_password node['lamp']['mysql']['root_password']
   action [:create, :start]
-end
-
-package 'php5-mysql' do
-  action :install
+  version node['lamp']['mysql']['version']
 end
 
 php_fpm_pool 'default' do
